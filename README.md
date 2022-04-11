@@ -8,7 +8,7 @@ Content:
 3. Visualize Data.
 4. Monitor Data.
 5. Collect APM Data.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 1. Setup the enviroment and Install Datadog Agent
 
@@ -36,6 +36,8 @@ DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=xxxxxxxxxxxxxxxxxxxx DD_SITE="datadoghq.com"
 [![Setup-the-enviroment-1-4.png](https://i.postimg.cc/pLvZV1jY/Setup-the-enviroment-1-4.png)](https://postimg.cc/fJHXBCBJ)
 
 [![Setup-the-enviroment-1-5.png](https://i.postimg.cc/WpkY2yzt/Setup-the-enviroment-1-5.png)](https://postimg.cc/yW7yjvFz)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2.Collect Metrics
 
@@ -125,6 +127,171 @@ QUESTION:
 
   3. Visualize Data.
   
+  Utilize the Datadog API to create a Timeboard.
+ To create the conection with the API i have created API Key and the application key: 
+  
+  [![imagvisualize-data-3-1.png](https://i.postimg.cc/2ydvQLM9/imagvisualize-data-3-1.png)](https://postimg.cc/MfTvxHW1)
+  
+  [![imagvisualize-data-3-2.png](https://i.postimg.cc/763bd89f/imagvisualize-data-3-2.png)](https://postimg.cc/hzGSQYHB)
+  
+  After created the Keys for api amd app, i have validated the api keys with postman: 
+  
+  [![imagvisualize-data-3-3.png](https://i.postimg.cc/28bNSFpx/imagvisualize-data-3-3.png)](https://postimg.cc/Vd8V7tkS)
+  
+  After validation, procced with installation of the Python3-pip libraries on my vm and the data dog api-client.
+  
+  [![imagvisualize-data-3-4.png](https://i.postimg.cc/wxSgJbQr/imagvisualize-data-3-4.png)](https://postimg.cc/t7tKGkfd)
+  
+  after installing i had some issues and i have upgrade  the datadog-api-client
+  
+  [![imagvisualize-data-3-5.png](https://i.postimg.cc/0QhRYbDS/imagvisualize-data-3-5.png)](https://postimg.cc/9RPnVXxX)
+  
+  After installe dthe api client, i create the example.py file:
+  
+ [![imagvisualize-data-3-6.png](https://i.postimg.cc/t4JkjDLX/imagvisualize-data-3-6.png)](https://postimg.cc/BjWH55Sy)
+  
+ [![imagvisualize-data-3-7.png](https://i.postimg.cc/nV1G96xF/imagvisualize-data-3-7.png)](https://postimg.cc/MXvQh3XN)
+  
+ After installing the client and created the example.py file, I  have  run the following command to exacute the python code and create the example dashboard
+  
+ DD_SITE="datadoghq.com" DD_API_KEY="<DD_API_KEY>" DD_APP_KEY="<DD_APP_KEY>" python3 "example.py"
+  
+ [![imagvisualize-data-3-8.png](https://i.postimg.cc/4Nq7Y5Y4/imagvisualize-data-3-8.png)](https://postimg.cc/GHPhNvP6)
+  
+ After the execution of the command, i have confirmed into the platform that have been created.
+ 
+  [![imagvisualize-data-3-9.png](https://i.postimg.cc/8PJsg6t2/imagvisualize-data-3-9.png)](https://postimg.cc/kBC7xBrs)
+  
+ After confirmed the api is working, i have edited the script in example.py.
+ The First widget takes the average of metric, the second widget uses the anomalies function and the third widget uses the rollup function.
+ 
+  [![imagvisualize-data-3-10.png](https://i.postimg.cc/59HFbTtK/imagvisualize-data-3-10.png)](https://postimg.cc/G9CpjMGv)
+ 
+ Once i have edit the scrip, i have executed the command via terminal to see the changes in the platform:
+ 
+ [![imagvisualize-data-3-11.png](https://i.postimg.cc/CLPtkZ0x/imagvisualize-data-3-11.png)](https://postimg.cc/0bScqyrT)
+ 
+ 
+ This is the Dashboard in the Datadog platform:
+
+[![imagvisualize-data-3-12.png](https://i.postimg.cc/Hk1MSzdZ/imagvisualize-data-3-12.png)](https://postimg.cc/GHz9tkBG)
+  
+ This is the response we have in the past 5 minutes: 
+[![imagvisualize-data-3-13.png](https://i.postimg.cc/dV99rprm/imagvisualize-data-3-13.png)](https://postimg.cc/68yRNHHy)
+  
+this is the snap i have made: 
+
+[![imagvisualize-data-3-14.png](https://i.postimg.cc/tgYVJM5g/imagvisualize-data-3-14.png)](https://postimg.cc/McJGrtgk)
+
+This is the capture of the email from the comment:
+  
+[![imagvisualize-data-3-15.png](https://i.postimg.cc/NfFypn3k/imagvisualize-data-3-15.png)](https://postimg.cc/F7tsKTsY)
+  
+Question: 
+  
+  What is the Anomaly graph displaying?
+
+The anomaly function is an algorithmic, shows as a grey band in the metric line, showing th expected behavior of a series based on the past. 
+  
+
+Capture of the anomaly graph:
+[![imagvisualize-data-3-16.png](https://i.postimg.cc/gjCPyn95/imagvisualize-data-3-16.png)](https://postimg.cc/Lg37248B)
+  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+  
+4. Monitor Data.
+
+Navigate to Monitors in the Datadog platform and create a new monitor.
+I have created a new monitor for my_metryc:
+
+Defining alert conditions
+[![monitor-data-4-1.png](https://i.postimg.cc/Rh6WV6Qb/monitor-data-4-1.png)](https://postimg.cc/q6rJ17F8)  
+  
+create a notification that alerts yourself. Notifications support template variables with examples:
+
+  [![monitor-data-4-2.png](https://i.postimg.cc/Y0YFkDHs/monitor-data-4-2.png)](https://postimg.cc/y36xyPWm)
+  
+View from DataDog platform:
+  
+[![monitor-data-4-3.png](https://i.postimg.cc/QMvVtg0G/monitor-data-4-3.png)](https://postimg.cc/SX7m1MBD)
+
+Test message to confirm the notification of the 3 alerts:
+  
+Warning: 
+
+[![monitor-data-4-4.png](https://i.postimg.cc/pX3SspGV/monitor-data-4-4.png)](https://postimg.cc/Yhf89qBT)
+  
+Alert
+  
+[![monitor-data-4-5.png](https://i.postimg.cc/5t8jXYGX/monitor-data-4-5.png)](https://postimg.cc/xkT97C9Q)
+
+No Data
+  
+[![monitor-data-4-6.png](https://i.postimg.cc/ZK9b9vvJ/monitor-data-4-6.png)](https://postimg.cc/qzTVSRGF)
+  
+
+Scheduling downtime for the notification after 7PM week days.
+  
+[![monitor-data-4-7.png](https://i.postimg.cc/fRDM82gR/monitor-data-4-7.png)](https://postimg.cc/hfZFjrBk)
+  
+Scheduling downtime for notification on Weekends whole day: 
+
+[![monitor-data-4-8.png](https://i.postimg.cc/zvT1jKCh/monitor-data-4-8.png)](https://postimg.cc/dZQXQ7SQ)
+  
+Both down times created: 
+
+[![monitor-data-4-9.png](https://i.postimg.cc/rwn75QBb/monitor-data-4-9.png)](https://postimg.cc/68ZHXL5L)
+  
+[![monitor-data-4-10.png](https://i.postimg.cc/zvrQqMhL/monitor-data-4-10.png)](https://postimg.cc/2b0Gw02m)
+  
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+5. Collecting APM Data:
+  
+I have installed pip, after pip i have installed ddtrace:
+
+[![Collecting-APM-5-1.png](https://i.postimg.cc/6p8Tr174/Collecting-APM-5-1.png)](https://postimg.cc/ZWhTZHxJ)
+  
+Instalation of Flash: 
+  
+[![Collecting-APM-5-2.png](https://i.postimg.cc/cH0sbDJm/Collecting-APM-5-2.png)](https://postimg.cc/gwtFwH8X)
+  
+I have created a basic app, app.py:
+  
+[![Collecting-APM-5-3.png](https://i.postimg.cc/sgdbmMxP/Collecting-APM-5-3.png)](https://postimg.cc/ZCHfKKr0)
+  
+i have add configuration to the datadog's  agent for the APM:
+  
+[![Collecting-APM-5-4.png](https://i.postimg.cc/nzDPqZxS/Collecting-APM-5-4.png)](https://postimg.cc/Q9jmr2Hc)
+  
+After i have run the command of the configuration snippet
+DD_SERVICE="TEST_DATADOG_ALCIDES" DD_ENV="apm_test" DD_LOGS_INJECTION=true ddtrace-run python app.py
+  
+[![Collecting-APM-5-5.png](https://i.postimg.cc/Yq5jxzQX/Collecting-APM-5-5.png)](https://postimg.cc/KR5ZGLqL)
+  
+
+
+  
+
+  
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+ 
+ 
   
 
   
